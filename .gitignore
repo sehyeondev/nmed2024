@@ -188,3 +188,6 @@ shap_example.py
 plots/check.csv
 *_cohorts/
 *_updated/
+
+# NACC raw data (non-redistributable)
+data/nacc/
