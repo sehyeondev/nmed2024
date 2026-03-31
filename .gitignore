@@ -191,3 +191,6 @@ plots/check.csv
 
 # NACC raw data (non-redistributable)
 data/nacc/
+
+# Claude Code
+.claude/
