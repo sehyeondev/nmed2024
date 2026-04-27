@@ -9,7 +9,7 @@ nacc_test_with_np_cli.csv (~9,048 subjects), and reports:
   - CSV dump, ROC-curve grid, confusion-matrix grid
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     conda activate viterbi_net
     python scripts/eval_nacc.py
 """

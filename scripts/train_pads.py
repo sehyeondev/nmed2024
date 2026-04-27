@@ -3,7 +3,7 @@ Train nmed2024 Transformer on PADS dataset (Phase 2: grouped tokens).
 Run this after convert_pads_data.py has been executed.
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     conda activate viterbi_net
     python scripts/train_pads.py
 """
@@ -11,7 +11,9 @@ import subprocess
 import sys
 import os
 
-os.chdir("C:/Users/shkim/codes/nmed2024")
+_HERE = os.path.abspath(os.path.dirname(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_HERE, ".."))
+os.chdir(_REPO_ROOT)
 os.makedirs("data/pads/checkpoints", exist_ok=True)
 
 cmd = [

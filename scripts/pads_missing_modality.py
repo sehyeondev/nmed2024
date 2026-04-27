@@ -22,7 +22,7 @@ Outputs:
         missing_modality_delta.csv      (AUROC drop from full)
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/pads_missing_modality.py
 """
 import os

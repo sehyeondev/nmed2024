@@ -4,7 +4,7 @@ separately for the (NC, MCI, DE) block and the 10-etiology block,
 so the numbers can be placed side-by-side with Xu et al. Fig. 2 / Fig. 3.
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/compute_nacc_aggregate.py
 """
 import os

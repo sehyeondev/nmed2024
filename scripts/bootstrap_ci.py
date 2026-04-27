@@ -10,7 +10,7 @@ For each label:
 Also prints paper-comparable aggregate (micro / macro) CIs.
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/bootstrap_ci.py
 """
 import os

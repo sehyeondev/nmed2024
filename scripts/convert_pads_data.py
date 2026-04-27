@@ -7,18 +7,32 @@ Phase 2: Task-grouped tokens
 - Questionnaire: 30 NMS binary items (categorical)
 - Demographics: age, gender, height, weight, handedness
 - Total tokens: 44 + 30 + 5 = 79 (vs Phase 1's 4127)
+
+Configure the PADS source location either via CLI flag or env var:
+    python scripts/convert_pads_data.py --pads_root /path/to/pads_zenodo
+    PADS_ROOT=/path/to/pads_zenodo python scripts/convert_pads_data.py
 """
 
+import argparse
+import os
 import numpy as np
 import pandas as pd
 from scipy.signal import welch
 from sklearn.model_selection import StratifiedShuffleSplit
-import os
 
-# Paths
-PADS_ROOT = "C:/Users/shkim/codes/pads-project/project/data"
-OUTPUT_DIR = "C:/Users/shkim/codes/nmed2024/data/pads"
-TOML_DIR = "C:/Users/shkim/codes/nmed2024/dev/data/toml_files"
+# Repo-root anchored defaults (script lives at <repo>/scripts/)
+_HERE = os.path.abspath(os.path.dirname(__file__))
+_REPO_ROOT = os.path.abspath(os.path.join(_HERE, ".."))
+
+# Default PADS_ROOT: env var > sibling pads-project checkout > leave None
+_DEFAULT_PADS_ROOT = os.environ.get(
+    "PADS_ROOT",
+    os.path.abspath(os.path.join(_REPO_ROOT, "..", "pads-project", "project", "data")),
+)
+
+PADS_ROOT = _DEFAULT_PADS_ROOT
+OUTPUT_DIR = os.path.join(_REPO_ROOT, "data", "pads")
+TOML_DIR = os.path.join(_REPO_ROOT, "dev", "data", "toml_files")
 
 # ============================================================
 # Feature extraction (reproduced from PADS ml/feature_extraction.py)
@@ -319,4 +333,27 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--pads_root", default=PADS_ROOT,
+        help=("Path to the extracted PADS Zenodo archive (must contain "
+              "movement/, questionnaire/, patients/ subfolders). "
+              "Default: $PADS_ROOT or ../pads-project/project/data."))
+    parser.add_argument("--output_dir", default=OUTPUT_DIR,
+        help="Where to write converted CSVs. Default: <repo>/data/pads")
+    parser.add_argument("--toml_dir", default=TOML_DIR,
+        help="Where to write the generated TOML config. "
+             "Default: <repo>/dev/data/toml_files")
+    args = parser.parse_args()
+
+    PADS_ROOT = args.pads_root
+    OUTPUT_DIR = args.output_dir
+    TOML_DIR = args.toml_dir
+
+    if not os.path.isdir(PADS_ROOT):
+        raise SystemExit(
+            f"PADS_ROOT does not exist: {PADS_ROOT}\n"
+            "Download the PADS dataset from Zenodo and pass --pads_root "
+            "or set the PADS_ROOT environment variable.")
+
     main()

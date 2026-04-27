@@ -22,7 +22,7 @@ We reproduce those binary AUCs from the 3-class model by taking the PD
 score column and restricting to the relevant subsets.
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/aggregate_pads_cv.py
 """
 import os

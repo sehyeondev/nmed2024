@@ -11,7 +11,7 @@ test.csv (94 subjects), and reports:
   - Confusion-matrix plots (one per class) at both thresholds
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     conda activate viterbi_net
     python scripts/eval_pads.py
 

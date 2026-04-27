@@ -5,7 +5,7 @@ Loads the saved predictions produced by eval_nacc.py and writes a compact
 2x2 ROC grid to refs/nacc_eval/roc_curves_primary.png.
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/plot_nacc_primary_roc.py
 """
 import os

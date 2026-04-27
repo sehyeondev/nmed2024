@@ -32,7 +32,7 @@ Outputs:
         attention_heatmap.png         # rows TGT x cols top-K SRC
 
 Usage:
-    cd C:/Users/shkim/codes/nmed2024
+    cd <repo root>
     python scripts/pads_attention.py
 """
 import os
