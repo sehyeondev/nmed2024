@@ -235,7 +235,7 @@ mdl = ADRDModel(
     label_distribution = label_distribution,
     ranking_loss = args.ranking_loss,
     _amp_enabled = False,
-    _dataloader_num_workers = 4,
+    _dataloader_num_workers = 0,
 )
 
 if args.img_mode == 0 or args.img_mode == 2:

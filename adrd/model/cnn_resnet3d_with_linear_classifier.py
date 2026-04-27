@@ -1,3 +1,4 @@
+from __future__ import annotations
 __all__ = ['CNNResNet3DWithLinearClassifier']
 
 import torch
@@ -10,7 +11,7 @@ from sklearn.model_selection import train_test_split
 from scipy.special import expit
 from copy import deepcopy
 from contextlib import suppress
-from typing import Any, Self, Type
+from typing import Any, Type
 from functools import wraps
 Tensor = Type[torch.Tensor]
 Module = Type[torch.nn.Module]

@@ -1,3 +1,4 @@
+from __future__ import annotations
 import torch
 import numpy as np
 import tqdm
@@ -7,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from scipy.special import expit
 from copy import deepcopy
 from contextlib import suppress
-from typing import Any, Self
+from typing import Any
 from icecream import ic
 
 from .. import nn

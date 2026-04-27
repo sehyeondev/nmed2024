@@ -6,9 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# data
-data/nacc/
-
 # Distribution / packaging
 .Python
 build/
@@ -193,8 +190,21 @@ plots/check.csv
 *_cohorts/
 *_updated/
 
-# NACC raw data (non-redistributable)
+# NACC data (non-redistributable)
 data/nacc/
+converted_data.csv
 
 # Claude Code
 .claude/
+
+# ARPA-H confidential — presentations, decks, internal docs (NEVER commit)
+# Ignore everything under refs/ except whitelisted public papers
+refs/*
+!refs/papers/
+
+# Data — downloaded/generated locally; not redistributed via git
+# PADS: open access on Zenodo, run scripts/convert_pads_data.py to regenerate
+data/pads/
+# NACC-derived splits and cohorts (restricted; separate access required)
+data/train_vld_test_split_updated/
+data/training_cohorts/

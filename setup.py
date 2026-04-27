@@ -18,7 +18,7 @@ setuptools.setup(
     #     'ckpt/dynamic_calibrated_classifier_073023.pkl',
     #     'ckpt/static_calibrated_classifier_073023.pkl',
     # ]},
-    python_requires = '>=3.11',
+    python_requires = '>=3.10',
     classifiers = [
         'Environment :: GPU :: NVIDIA CUDA',
         'Operating System :: OS Independent',

@@ -83,7 +83,10 @@ class Transformer(torch.nn.Module):
                 raise ValueError('{} is an unrecognized data modality'.format(k))
             
         # positional encoding
-        self.pe = PositionalEncoding(d_model)
+        n_src = len(src_modalities)
+        n_tgt = len(tgt_modalities)
+        pe_max_len = max(512, n_src + n_tgt + 16)
+        self.pe = PositionalEncoding(d_model, max_len=pe_max_len)
 
         # auxiliary embedding vectors for targets
         self.emb_aux = torch.nn.Parameter(

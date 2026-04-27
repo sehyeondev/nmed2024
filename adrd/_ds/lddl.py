@@ -1,4 +1,5 @@
-from typing import Any, Self, overload
+from __future__ import annotations
+from typing import Any, overload
 
 
 class lddl:

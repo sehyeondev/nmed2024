@@ -2,8 +2,8 @@
 
 # run this script from adrd_tool/
 
-conda activate adrd
-pip install .
+conda activate viterbi_net
+# pip install .
 
 # install the package
 # cd adrd_tool

@@ -1,6 +1,7 @@
 from typing import Any
 from numpy.typing import NDArray
 import numpy as np
+import ast
 
 class Formatter:
     ''' ... '''
@@ -33,8 +34,11 @@ class Formatter:
                 new[k] = v
                 continue
 
-            # validate the value by using numpy's intrinsic machanism 
+            # validate the value by using numpy's intrinsic machanism
             try:
+                # handle string representations of lists from CSV
+                if isinstance(v, str) and v.startswith('['):
+                    v = ast.literal_eval(v)
                 v_np = np.array(v, dtype=np.float32)
             except:
                 raise ValueError('\"{}\" has unexpected value {}'.format(k, v))
